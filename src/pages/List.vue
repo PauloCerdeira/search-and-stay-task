@@ -3,15 +3,32 @@
     <h3 class="col-auto q-mt-none q-mb-md">List</h3>
 
     <q-list class="col list-container relative-position" bordered>
+      <q-item dense v-ripple>
+        <q-item-section class="text-body1"
+          >ID    -     Name</q-item-section
+        >
+        <q-item-section avatar>
+          Active
+        </q-item-section>
+      </q-item>
+
+      <q-separator />
+
       <q-item v-for="item in list" :key="item.id" v-ripple>
         <q-item-section class="text-body1"
           >{{ item.id }} - {{ item.name }}</q-item-section
         >
         <q-item-section avatar>
-          <q-icon
-            :color="item.active ? 'positive' : 'negative'"
-            :name="item.active ? 'done' : 'close'"
-          />
+          <q-toggle
+          dense
+        v-model="item.active"
+        checked-icon="done"
+        unchecked-icon="close"
+        :false-value=0
+        :true-value=1
+        color="positive"
+        disable
+      />
         </q-item-section>
       </q-item>
 
@@ -31,6 +48,7 @@
 </template>
 
 <script>
+import check_aut from "src/utils/check_aut";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -44,6 +62,7 @@ export default defineComponent({
     };
   },
   async created() {
+    await check_aut(this.$api, this.$q, this.$router)
     this.getlist();
   },
   methods: {
@@ -60,7 +79,7 @@ export default defineComponent({
 
 <style scoped>
 .list-container {
-  max-height: 482px;
+  max-height: 514px;
   min-width: 310px;
 }
 </style>

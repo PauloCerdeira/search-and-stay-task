@@ -68,19 +68,12 @@ const linksList = [
     icon: 'add',
     link: '/create'
   },
-  // {
-  //   title: 'Update',
-  //   caption: 'teste',
-  //   icon: 'edit',
-  //   link: '/update'
-  // },
-  // {
-  //   title: 'Delete',
-  //   caption: 'teste',
-  //   icon: 'delete',
-  //   link: '/delete'
-  // },
-
+  {
+    title: 'Logout',
+    caption: 'Go back to Login Screen',
+    icon: 'logout',
+    link: '/'
+  },
 ]
 
 export default defineComponent({

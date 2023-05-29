@@ -8,8 +8,6 @@ const routes = [
       { path: '/list', component: () => import('src/pages/List.vue') },
       { path: '/show', component: () => import('src/pages/Show.vue') },
       { path: '/create', component: () => import('src/pages/Create.vue') },
-      { path: '/update', component: () => import('src/pages/update.vue') },
-      { path: '/delete', component: () => import('src/pages/Delete.vue') },
     ]
   },
 

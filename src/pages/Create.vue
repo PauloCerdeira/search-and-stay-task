@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import check_aut from "src/utils/check_aut";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -35,6 +36,9 @@ export default defineComponent({
         active: "0",
       },
     };
+  },
+  async created() {
+    await check_aut(this.$api, this.$q, this.$router)
   },
   methods: {
     async createRule() {
